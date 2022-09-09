@@ -8,14 +8,14 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class TableComponent implements OnInit {
 
-  posts: any;
+  students: any = [];
 
   constructor(private service: PostService) { }
 
   ngOnInit(): void {
-    
-   this.service.getPosts().subscribe(res => this.posts = res);
-   console.log(this.posts)
+
+    this.service.getPosts().subscribe((data: any) => this.students = data.content);
+
   }
 
 }

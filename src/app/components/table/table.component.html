@@ -1,8 +1,12 @@
 <p>table works!</p>
-<ul class="list-group">
-    <li 
-        *ngFor="let post of posts"
-        class="list-group-item">
-        {{ post.content }}
-    </li>
-  </ul>
+<table class="table">
+    <tr *ngFor="let student of students" class="list-group-item">
+
+        <td>{{ student.id }}</td>
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.age }}</td>
+
+    </tr>
+</table>
