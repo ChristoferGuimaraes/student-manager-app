@@ -1,5 +1,6 @@
 <p>table works!</p>
 <table class="table">
+  <thead>
     <tr *ngFor="let student of students" class="list-group-item">
 
         <td>{{ student.id }}</td>
@@ -9,4 +10,5 @@
         <td>{{ student.age }}</td>
 
     </tr>
+  </thead>
 </table>
