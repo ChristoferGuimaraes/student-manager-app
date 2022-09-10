@@ -4,13 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TableComponent } from './components/table/table.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TableCoursesComponent } from './components/table-courses/table-courses.component';
+import { TableStudentsComponent } from './components/table-students/table-students.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent
+    TableCoursesComponent,
+    TableStudentsComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,12 +6,17 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class PostService {
-  private url = 'http://localhost:9090/api/students';
+  private urlStudents = 'http://localhost:9090/api/students';
+  private urlCourses = 'http://localhost:9090/api/courses';
    
   constructor(private httpClient: HttpClient) { }
   
-  getPosts(){
-    return this.httpClient.get(this.url);
+  getStudents(){
+    return this.httpClient.get(this.urlStudents);
+  }
+
+  getCourses() {
+    return this.httpClient.get(this.urlCourses)
   }
   
 }
