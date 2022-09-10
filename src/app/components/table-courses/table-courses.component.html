@@ -1,15 +1,19 @@
 <p>Courses</p>
 <table class="table">
-    <tr>
-        <th *ngFor="let header of headers">
-            {{header}}
-        </th>
-    </tr>
+    <thead>
+        <tr>
+            <th *ngFor="let header of headers">
+                {{header}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let course of courses">
+            <td>{{ course.name }}</td>
+            <td>{{ course.teacherName }}</td>
+            <td>{{ course.classNumber}}</td>
+            <td>{{ course.startDate }}</td>
+        </tr>
+    </tbody>
 
-    <tr *ngFor="let course of courses">
-        <td>{{ course.name }}</td>
-        <td>{{ course.teacherName }}</td>
-        <td>{{ course.classNumber}}</td>
-        <td>{{ course.startDate }}</td>
-    </tr>
 </table>

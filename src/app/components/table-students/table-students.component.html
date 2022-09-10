@@ -1,14 +1,19 @@
 <p>Students</p>
 <table class="table">
     <thead>
-        
+        <tr>
+            <th *ngFor="let header of headers">
+                {{header}}
+            </th>
+        </tr>
     </thead>
-    <tr *ngFor="let student of students" class="list-group-item">
-
-        <td>{{ student.id }}</td>
-        <td>{{ student.firstName }}</td>
-        <td>{{ student.lastName }}</td>
-        <td>{{ student.email }}</td>
-        <td>{{ student.age }}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{ student.id }}</td>
+            <td>{{ student.firstName }}</td>
+            <td>{{ student.lastName }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.email }}</td>
+        </tr>
+    </tbody>
 </table>
