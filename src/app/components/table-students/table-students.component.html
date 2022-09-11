@@ -1,14 +1,14 @@
-<p>Students</p>
-<table class="table">
+<h4>Students</h4>
+<table class="table table-dark table-striped table-hover">
     <thead>
         <tr>
-            <th *ngFor="let header of headers">
+            <th *ngFor="let header of headers" scope="col">
                 {{header}}
             </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let student of students">
+        <tr *ngFor="let student of students" scope="row">
             <td>{{ student.id }}</td>
             <td>{{ student.firstName }}</td>
             <td>{{ student.lastName }}</td>
