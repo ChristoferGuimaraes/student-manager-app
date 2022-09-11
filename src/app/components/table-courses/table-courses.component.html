@@ -1,19 +1,19 @@
-<h4>Courses</h4>
-<table class="table table-dark table-striped table-hover">
-    <thead>
-        <tr>
-            <th *ngFor="let header of headers" scope="col">
-                {{header}}
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let course of courses" scope="row">
-            <td>{{ course.name }}</td>
-            <td>{{ course.teacherName }}</td>
-            <td>{{ course.classNumber}}</td>
-            <td>{{ course.startDate }}</td>
-        </tr>
-    </tbody>
-
-</table>
+<div class="table-content">
+    <table class="table table-dark table-striped table-hover">
+        <thead>
+            <tr>
+                <th *ngFor="let header of headers" scope="col">
+                    {{header}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of courses" scope="row">
+                <td>{{ course.name }}</td>
+                <td>{{ course.teacherName }}</td>
+                <td>{{ course.classNumber}}</td>
+                <td>{{ course.startDate }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

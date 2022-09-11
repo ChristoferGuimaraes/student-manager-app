@@ -3,6 +3,21 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+body {
+    background-color: rgb(58, 59, 77);
+    
+    h4 {
+        color: #fff;
+    }
+}
+
+
 .table {
-    max-width: 80rem;
+    max-width: 70rem;
+}
+
+.table-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
 }
