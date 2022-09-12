@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableCoursesComponent } from './components/table-courses/table-courses.component';
 import { TableStudentsComponent } from './components/table-students/table-students.component';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { TableStudentsComponent } from './components/table-students/table-studen
     AppComponent,
     TableCoursesComponent,
     TableStudentsComponent,
+    MainMenuComponent,
   ],
   imports: [
     BrowserModule,
