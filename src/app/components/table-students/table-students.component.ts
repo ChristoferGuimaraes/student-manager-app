@@ -12,6 +12,7 @@ export class TableStudentsComponent implements OnInit {
 
   constructor(private service: PostService) { }
 
+
   ngOnInit(): void {
     this.getAllStudents();
     this.getHeader();
