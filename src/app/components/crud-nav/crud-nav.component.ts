@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-crud-nav',
@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crud-nav.component.scss']
 })
 export class CrudNavComponent implements OnInit {
-
-  titles: String[] = ["Students", "Courses"];
+  @Input() title?: string;
 
   constructor() { }
 

@@ -1,24 +1,26 @@
-<app-crud-nav></app-crud-nav>
-<div class="table-content">
+<div class="nav-table-content">
+  <app-crud-nav [title]="title"></app-crud-nav>
+  <div class="table-content">
     <table class="table table-dark table-striped table-hover">
-        <thead>
-            <tr>
-              <th>#</th>
-                <th *ngFor="let header of headers" scope="col">
-                    {{header}}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let course of courses" scope="row" id="{{course.name}}">
-              <td>
-                <input type="checkbox" >
-              </td>
-                <td>{{ course.name }}</td>
-                <td>{{ course.teacherName }}</td>
-                <td>{{ course.classNumber}}</td>
-                <td>{{ course.startDate }}</td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th *ngFor="let header of headers" scope="col">
+            {{header}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses" scope="row" id="{{course.name}}">
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>{{ course.name }}</td>
+          <td>{{ course.teacherName }}</td>
+          <td>{{ course.classNumber}}</td>
+          <td>{{ course.startDate }}</td>
+        </tr>
+      </tbody>
     </table>
+  </div>
 </div>

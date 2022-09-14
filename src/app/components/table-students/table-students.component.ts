@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./table-students.component.scss']
 })
 export class TableStudentsComponent implements OnInit {
+  @Output() title: string = "Students";
   students: any = [];
   headers: any = ["ID", "Name", "Age", "Email"];
 
