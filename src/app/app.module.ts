@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableCoursesComponent } from './components/table-courses/table-courses.component';
 import { TableStudentsComponent } from './components/table-students/table-students.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { CrudNavComponent } from './components/crud-nav/crud-nav.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
     TableCoursesComponent,
     TableStudentsComponent,
     MainMenuComponent,
+    CrudNavComponent,
   ],
   imports: [
     BrowserModule,

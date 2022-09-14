@@ -1,0 +1,23 @@
+.menu-component-container {
+    display: block;
+}
+
+.menu-container {
+    display: flex;
+    position: fixed;
+    justify-content: left;
+    width: 13rem;
+    height: 100%;
+    background-color: #fff;
+    
+    .nav-link {
+        width: 13rem;
+        color: #000;
+        cursor: pointer;
+    }
+
+    .nav-link:hover {
+        background-color: rgb(104, 104, 104);
+        color: #fff;
+    }
+}
