@@ -9,6 +9,7 @@ import { TableCoursesComponent } from './components/table-courses/table-courses.
 import { TableStudentsComponent } from './components/table-students/table-students.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { CrudNavComponent } from './components/crud-nav/crud-nav.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { CrudNavComponent } from './components/crud-nav/crud-nav.component';
     TableStudentsComponent,
     MainMenuComponent,
     CrudNavComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

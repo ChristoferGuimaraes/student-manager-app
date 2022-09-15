@@ -2,15 +2,14 @@
   <div class="menu-container">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link active" (click)="selectTableStudent()">Students</a>
+        <a class="nav-link active" routerLink="/students" routerLinkActive="active">Students</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="selectTableCourse()">Courses</a>
+        <a class="nav-link active" routerLink="/courses" routerLinkActive="active">Courses</a>
       </li>
     </ul>
   </div>
-  <div>
-    <app-table-students *ngIf="student"></app-table-students>
-    <app-table-courses *ngIf="course"></app-table-courses>
+  
+</div><div class="router-content">
+    <router-outlet></router-outlet>
   </div>
-</div>

@@ -7,23 +7,6 @@ import { Component } from '@angular/core';
 })
 export class MainMenuComponent {
 
-  student: boolean = true;
-  course: boolean = false;
-
   constructor() { }
-
-  selectTableStudent(){
-    if (this.student == false){
-      this.student = !this.student;
-      this.course = !this.course;
-    }
-  }
-
-  selectTableCourse(){
-    if (this.course == false){
-      this.student = !this.student;
-      this.course = !this.course;
-    }
-  }
 
 }
