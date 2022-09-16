@@ -10,6 +10,10 @@ import { TableStudentsComponent } from './components/table-students/table-studen
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { CrudNavComponent } from './components/crud-nav/crud-nav.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+
+
 
 
 @NgModule({
@@ -20,12 +24,14 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MainMenuComponent,
     CrudNavComponent,
     NotFoundComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    MdbModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
