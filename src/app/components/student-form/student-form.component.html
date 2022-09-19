@@ -1,39 +1,39 @@
 <form [formGroup]="validationForm">
     <div class="row">
-      
+
       <div class="col-md-6 input-container">
         <mdb-form-control>
-          <label mdbLabel class="form-label" for="form1">Course Name</label>
+          <label mdbLabel class="form-label" for="form1">First Name</label>
           <mdb-error *ngIf="
               firstName?.invalid && (firstName?.dirty || firstName?.touched)
               ">*</mdb-error>
           <input mdbValidate mdbInput type="text" id="form1" class="form-control" formControlName="firstName" required />
         </mdb-form-control>
       </div>
-  
+
       <div class="col-md-6 input-container">
         <mdb-form-control>
-          <label mdbLabel class="form-label" for="form1">Teacher</label>
+          <label mdbLabel class="form-label" for="form1">Last Name</label>
           <mdb-error *ngIf="
               lastName?.invalid && (lastName?.dirty || lastName?.touched)
               ">*</mdb-error>
           <input mdbValidate mdbInput type="text" id="form1" class="form-control" formControlName="lastName" required />
         </mdb-form-control>
       </div>
-  
+
       <div class="col-md-6 input-container">
         <mdb-form-control>
-          <label mdbLabel class="form-label" for="form1">Class Number</label>
+          <label mdbLabel class="form-label" for="form1">Email</label>
           <mdb-error *ngIf="
               email?.invalid && (email?.dirty || email?.touched)
               ">*</mdb-error>
           <input mdbValidate mdbInput type="email" id="form1" class="form-control" formControlName="email" required />
         </mdb-form-control>
       </div>
-  
+
       <div class="col-md-6 input-container">
         <mdb-form-control>
-          <label mdbLabel class="form-label" for="form1">Start Date</label>
+          <label mdbLabel class="form-label" for="form1">Birth Date</label>
           <mdb-error *ngIf="
               birthDate?.invalid && (birthDate?.dirty || birthDate?.touched)
               ">*</mdb-error>
