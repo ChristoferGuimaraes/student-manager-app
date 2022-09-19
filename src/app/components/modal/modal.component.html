@@ -3,8 +3,12 @@
     <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
     <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body" *ngIf="title === 'Courses'">
+    <app-course-form></app-course-form>
+  </div>
 
+  <div class="modal-body" *ngIf="title === 'Students'">
+    <app-student-form></app-student-form>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modalRef.close()">

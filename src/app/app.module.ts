@@ -13,7 +13,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
-
+import { CourseFormComponent } from './components/course-form/course-form.component';
+import { StudentFormComponent } from './components/student-form/student-form.component';
+import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +28,9 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
     MainMenuComponent,
     CrudNavComponent,
     NotFoundComponent,
-    ModalComponent
+    ModalComponent,
+    CourseFormComponent,
+    StudentFormComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,9 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
     HttpClientModule,
     NgbModule,
     MdbModalModule,
-    MdbFormsModule
+    MdbFormsModule,
+    MdbValidationModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
