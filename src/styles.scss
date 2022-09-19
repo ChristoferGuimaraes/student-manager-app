@@ -1,16 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
 
 body {
+    padding: 0 !important;
+    margin: 0 !important;
     background-color: rgb(58, 59, 77);
     width: 100%;
     height: 100%;
 
     h4 {
         color: #fff;
-    }
+    } 
 }
 
 .table {

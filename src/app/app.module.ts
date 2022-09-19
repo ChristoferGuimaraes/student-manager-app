@@ -12,6 +12,7 @@ import { CrudNavComponent } from './components/crud-nav/crud-nav.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 
 
 
@@ -31,7 +32,8 @@ import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    MdbModalModule
+    MdbModalModule,
+    MdbFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

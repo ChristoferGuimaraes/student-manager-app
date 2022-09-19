@@ -7,6 +7,8 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
+title: string | null = null;
+body: string | null = null;
 
   constructor(public modalRef: MdbModalRef<ModalComponent>) {}
 

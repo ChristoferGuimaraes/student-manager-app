@@ -8,15 +8,20 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
   templateUrl: './crud-nav.component.html',
   styleUrls: ['./crud-nav.component.scss'],
 })
-export class CrudNavComponent{
+export class CrudNavComponent {
   @Input() title?: string;
 
   modalRef: MdbModalRef<ModalComponent> | null = null;
 
-  constructor(private modalService: MdbModalService) {}
+  constructor(private modalService: MdbModalService) { }
 
   openModal() {
-    this.modalRef = this.modalService.open(ModalComponent)
+    this.modalRef = this.modalService.open(ModalComponent, {
+      data: {
+        title: `${this.title}`,
+        body: "Aqui vai o formulário.."
+      },
+    })
   }
 
 }
