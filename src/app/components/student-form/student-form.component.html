@@ -40,5 +40,12 @@
           <input mdbValidate mdbInput type="date" id="form1" class="form-control" formControlName="birthDate" required />
         </mdb-form-control>
       </div>
+
+      <div>
+        <button type="button" class="btn btn-secondary"(click)="modalRef.close()">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
     </div>
   </form>

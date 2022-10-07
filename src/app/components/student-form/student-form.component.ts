@@ -1,6 +1,9 @@
+import { PostService } from './../../services/post.service';
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { ModalComponent } from '../modal/modal.component';
+import { PostService } from 'src/app/services/post.service';
 @Component({
   selector: 'app-student-form',
   templateUrl: './student-form.component.html',
@@ -10,7 +13,7 @@ export class StudentFormComponent {
 
   validationForm: FormGroup;
 
-  constructor() {
+  constructor(public modalRef: MdbModalRef<ModalComponent>, private service: PostService) {
     this.validationForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
@@ -34,5 +37,14 @@ export class StudentFormComponent {
   get birthDate(): AbstractControl {
     return this.validationForm.get('birthDate')!;
   }
+{
 
+}
+  onSubmit(){
+    this.service.postStudents().subscribe(
+    success => console.log("sucesso"),
+    error => console.log(error),
+    () => console.log('request completo')
+    );
+  }
 }
