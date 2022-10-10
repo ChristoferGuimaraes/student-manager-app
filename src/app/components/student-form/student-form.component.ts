@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { ModalComponent } from '../modal/modal.component';
-import { PostService } from 'src/app/services/post.service';
+
 @Component({
   selector: 'app-student-form',
   templateUrl: './student-form.component.html',
@@ -18,7 +18,8 @@ export class StudentFormComponent {
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
       email: new FormControl(null, Validators.required),
-      birthDate: new FormControl(null, Validators.required)
+      birthDate: new FormControl(null, Validators.required),
+      courses: new FormControl([])
     });
   }
 
@@ -37,14 +38,16 @@ export class StudentFormComponent {
   get birthDate(): AbstractControl {
     return this.validationForm.get('birthDate')!;
   }
-{
 
-}
+  get courses(): AbstractControl {
+    return this.validationForm.get('courses')!;
+  }
+
   onSubmit(){
-    this.service.postStudents().subscribe(
-    success => console.log("sucesso"),
-    error => console.log(error),
-    () => console.log('request completo')
+    console.log(this.validationForm.value)
+    this.service.postStudents(this.validationForm.value).subscribe(
+      res => console.log(res),
+      err => console.log(err)
     );
   }
 }

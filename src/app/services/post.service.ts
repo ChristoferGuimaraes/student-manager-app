@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { take } from 'rxjs';
 import { JsonPipe } from '@angular/common';
 
@@ -23,7 +23,8 @@ export class PostService {
   }
 
   postStudents(student: JsonPipe){
-    return this.httpClient.post(this.urlStudentsPost, student).pipe();
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpClient.post(this.urlStudentsPost, student, {headers: headers}).pipe()
   }
 
 }
