@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostService } from './../../services/post.service';
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { ModalComponent } from '../modal/modal.component';
+
 
 @Component({
   selector: 'app-course-form',
@@ -9,7 +13,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 export class CourseFormComponent {
   validationForm: FormGroup;
 
-  constructor() {
+  constructor(public modalRef: MdbModalRef<ModalComponent>, private service: PostService) {
     this.validationForm = new FormGroup({
       courseName: new FormControl(null, Validators.required),
       teacherName: new FormControl(null, Validators.required),
@@ -32,6 +36,14 @@ export class CourseFormComponent {
 
   get startDate(): AbstractControl {
     return this.validationForm.get('startDate')!;
+  }
+
+  onSubmit(){
+    console.log(this.validationForm.value)
+    this.service.postCourses(this.validationForm.value).subscribe(
+      res => {this.modalRef.close()},
+      err => console.log(err)
+    );
   }
 
 }

@@ -1,6 +1,6 @@
 <form [formGroup]="validationForm">
   <div class="row">
-    
+
     <div class="col-md-6 input-container">
       <mdb-form-control>
         <label mdbLabel class="form-label" for="form1">Course Name</label>
@@ -39,6 +39,12 @@
             ">*</mdb-error>
         <input mdbValidate mdbInput type="date" id="form1" class="form-control" formControlName="startDate" required />
       </mdb-form-control>
+    </div>
+    <div>
+      <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+        Cancel
+      </button>
+      <button type="button" class="btn btn-primary" (click)="onSubmit()">Save</button>
     </div>
   </div>
 </form>
