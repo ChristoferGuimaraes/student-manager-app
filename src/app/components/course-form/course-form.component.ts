@@ -15,15 +15,15 @@ export class CourseFormComponent {
 
   constructor(public modalRef: MdbModalRef<ModalComponent>, private service: PostService) {
     this.validationForm = new FormGroup({
-      courseName: new FormControl(null, Validators.required),
+      name: new FormControl(null, Validators.required),
       teacherName: new FormControl(null, Validators.required),
       classNumber: new FormControl(null, Validators.required),
       startDate: new FormControl(null, Validators.required)
     });
   }
 
-  get courseName(): AbstractControl {
-    return this.validationForm.get('courseName')!;
+  get name(): AbstractControl {
+    return this.validationForm.get('name')!;
   }
 
   get teacherName(): AbstractControl {

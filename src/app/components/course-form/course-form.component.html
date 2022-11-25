@@ -5,9 +5,9 @@
       <mdb-form-control>
         <label mdbLabel class="form-label" for="form1">Course Name</label>
         <mdb-error *ngIf="
-            courseName?.invalid && (courseName?.dirty || courseName?.touched)
+            name?.invalid && (name?.dirty || name?.touched)
             ">*</mdb-error>
-        <input mdbValidate mdbInput type="text" id="form1" class="form-control" formControlName="courseName" required />
+        <input mdbValidate mdbInput type="text" id="form1" class="form-control" formControlName="name" required />
       </mdb-form-control>
     </div>
 
