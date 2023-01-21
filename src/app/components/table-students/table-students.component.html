@@ -1,26 +1,34 @@
 <div class="nav-table-content">
-    <app-crud-nav [title]="title" [entityId]="entityId"></app-crud-nav>
-    <div class="table-content">
-        <table class="table table-dark table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th *ngFor="let header of headers" scope="col">
-                        {{header}}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let student of students" scope="row" id="{{student.id}}">
-                    <td>
-                        <input type="checkbox" (change)="onCheckboxChange($event)" [id]="student.id">
-                    </td>
-                    <td>{{ student.id }}</td>
-                    <td>{{ student.fullName }}</td>
-                    <td>{{ student.age }}</td>
-                    <td>{{ student.email }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <app-crud-nav
+    [title]="title"
+    [entityId]="entityId"
+    (refreshTable)="getAllStudents()"
+  ></app-crud-nav>
+  <div class="table-content">
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th *ngFor="let header of headers" scope="col">
+            {{ header }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students" scope="row" id="{{ student.id }}">
+          <td>
+            <input
+              type="checkbox"
+              (change)="onCheckboxChange($event)"
+              [id]="student.id"
+            />
+          </td>
+          <td>{{ student.id }}</td>
+          <td>{{ student.fullName }}</td>
+          <td>{{ student.age }}</td>
+          <td>{{ student.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

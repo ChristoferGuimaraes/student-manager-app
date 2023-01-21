@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Output,
-  OnChanges,
-  SimpleChanges,
-  Input,
-} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -15,7 +8,6 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class TableStudentsComponent implements OnInit {
   @Output() title: string = 'Students';
-
   students: any = [];
   headers: any = ['ID', 'Name', 'Age', 'Email'];
   entityId: any;
@@ -27,14 +19,12 @@ export class TableStudentsComponent implements OnInit {
   }
 
   getAllStudents() {
-    this.service
-      .getStudents()
-      .subscribe((data: any) => {
-        data.content.forEach((student: any) => {
-          student.selected = false
-        });
-        this.students = data.content;
+    this.service.getStudents().subscribe((data: any) => {
+      data.content.forEach((student: any) => {
+        student.selected = false;
       });
+      this.students = data.content;
+    });
   }
 
   onCheckboxChange(value: any) {

@@ -1,54 +1,57 @@
-import { PostService } from './../../services/post.service';
-import { Component, OnChanges, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { ModalComponent } from '../modal/modal.component';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-student-form',
   templateUrl: './student-form.component.html',
-  styleUrls: ['./student-form.component.scss']
+  styleUrls: ['./student-form.component.scss'],
 })
-export class StudentFormComponent{
+export class StudentFormComponent {
+  form: FormGroup;
 
-  validationForm: FormGroup;
-
-  constructor(public modalRef: MdbModalRef<ModalComponent>, private service: PostService) {
-    this.validationForm = new FormGroup({
-      firstName: new FormControl(null, Validators.required),
-      lastName: new FormControl(null, Validators.required),
-      email: new FormControl(null, Validators.required),
-      birthDate: new FormControl(null, Validators.required),
-      courses: new FormControl([])
+  constructor(
+    public modalRef: MdbModalRef<ModalComponent>,
+    private fb: FormBuilder,
+    private eventService: EventService
+  ) {
+    this.form = this.fb.group({
+      firstName: [null, Validators.required],
+      lastName: [null, Validators.required],
+      email: [null, Validators.required],
+      birthDate: [null, Validators.required],
+      courses: [[]],
     });
   }
 
-
   get firstName(): AbstractControl {
-    return this.validationForm.get('firstName')!;
+    return this.form.get('firstName')!;
   }
 
   get lastName(): AbstractControl {
-    return this.validationForm.get('lastName')!;
+    return this.form.get('lastName')!;
   }
 
   get email(): AbstractControl {
-    return this.validationForm.get('email')!;
+    return this.form.get('email')!;
   }
 
   get birthDate(): AbstractControl {
-    return this.validationForm.get('birthDate')!;
+    return this.form.get('birthDate')!;
   }
 
   get courses(): AbstractControl {
-    return this.validationForm.get('courses')!;
+    return this.form.get('courses')!;
   }
 
-  onSubmit(){
-    console.log(this.validationForm.value)
-    this.service.postStudents(this.validationForm.value).subscribe(
-      res => {this.modalRef.close()},
-      err => console.log(err)
-    );
+  onSubmit(): void {
+    this.eventService.emitEvent(this.form);
   }
 }

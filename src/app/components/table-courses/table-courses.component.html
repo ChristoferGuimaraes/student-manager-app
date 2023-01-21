@@ -6,19 +6,23 @@
         <tr>
           <th>#</th>
           <th *ngFor="let header of headers" scope="col">
-            {{header}}
+            {{ header }}
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let course of courses" scope="row" id="{{course.name}}">
+        <tr *ngFor="let course of courses" scope="row" id="{{ course.name }}">
           <td>
-            <input type="checkbox" (change)="onCheckboxChange($event)" [id]="course.name">
+            <input
+              type="checkbox"
+              (change)="onCheckboxChange($event)"
+              [id]="course.name"
+            />
           </td>
           <td>{{ course.name }}</td>
           <td>{{ course.teacherName }}</td>
-          <td>{{ course.classNumber}}</td>
-          <td>{{ course.startDate | date}}</td>
+          <td>{{ course.classNumber }}</td>
+          <td>{{ course.startDate | date }}</td>
         </tr>
       </tbody>
     </table>
