@@ -1,11 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { PostService } from 'src/app/services/post.service';
@@ -70,13 +63,13 @@ export class CrudNavComponent implements OnInit {
         this.service
           .postStudents(form.value)
           .pipe(takeUntil(this._unsub$))
-          .subscribe(
-            () => {
+          .subscribe({
+            next: () => {
               this.modalRef?.close();
               this.refreshTable.emit();
             },
-            (err) => console.log(err)
-          );
+            error: (err) => console.log(err),
+          });
       });
       return;
     }
@@ -85,13 +78,13 @@ export class CrudNavComponent implements OnInit {
       this.service
         .postCourses(form.value)
         .pipe(takeUntil(this._unsub$))
-        .subscribe(
-          () => {
+        .subscribe({
+          next: () => {
             this.modalRef?.close();
             this.refreshTable.emit();
           },
-          (err) => console.log(err)
-        );
+          error: (err) => console.log(err),
+        });
     });
   }
 }
