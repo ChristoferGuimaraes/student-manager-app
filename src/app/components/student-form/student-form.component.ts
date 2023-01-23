@@ -19,10 +19,9 @@ export class StudentFormComponent {
 
   constructor(
     public modalRef: MdbModalRef<ModalComponent>,
-    private fb: FormBuilder,
     private eventService: EventService
   ) {
-    this.form = this.fb.group({
+    this.form = new FormBuilder().group({
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
       email: [null, Validators.required],
