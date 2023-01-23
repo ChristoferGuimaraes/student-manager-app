@@ -1,5 +1,9 @@
 <div class="nav-table-content">
-  <app-crud-nav [title]="title" [entityId]="entityId"></app-crud-nav>
+  <app-crud-nav
+    [title]="title"
+    [entityId]="entityId"
+    (refreshTable)="getAllCourses()"
+  ></app-crud-nav>
   <div class="table-content">
     <table class="table table-dark table-striped table-hover">
       <thead>

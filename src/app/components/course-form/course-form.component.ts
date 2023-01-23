@@ -1,49 +1,51 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { PostService } from './../../services/post.service';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { ModalComponent } from '../modal/modal.component';
-
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-course-form',
   templateUrl: './course-form.component.html',
-  styleUrls: ['./course-form.component.scss']
+  styleUrls: ['./course-form.component.scss'],
 })
 export class CourseFormComponent {
-  validationForm: FormGroup;
+  form: FormGroup;
 
-  constructor(public modalRef: MdbModalRef<ModalComponent>, private service: PostService) {
-    this.validationForm = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      teacherName: new FormControl(null, Validators.required),
-      classNumber: new FormControl(null, Validators.required),
-      startDate: new FormControl(null, Validators.required)
+  constructor(
+    public modalRef: MdbModalRef<ModalComponent>,
+    private eventService: EventService
+  ) {
+    this.form = new FormBuilder().group({
+      name: [null, Validators.required],
+      teacherName: [null, Validators.required],
+      classNumber: [null, Validators.required],
+      startDate: [null, Validators.required],
     });
   }
 
   get name(): AbstractControl {
-    return this.validationForm.get('name')!;
+    return this.form.get('name')!;
   }
 
   get teacherName(): AbstractControl {
-    return this.validationForm.get('teacherName')!;
+    return this.form.get('teacherName')!;
   }
 
   get classNumber(): AbstractControl {
-    return this.validationForm.get('classNumber')!;
+    return this.form.get('classNumber')!;
   }
 
   get startDate(): AbstractControl {
-    return this.validationForm.get('startDate')!;
+    return this.form.get('startDate')!;
   }
 
-  onSubmit(){
-    console.log(this.validationForm.value)
-    this.service.postCourses(this.validationForm.value).subscribe(
-      res => {this.modalRef.close()},
-      err => console.log(err)
-    );
+  onSubmit() {
+    this.eventService.emitEvent(this.form);
   }
-
 }
