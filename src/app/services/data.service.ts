@@ -5,7 +5,7 @@ import { JsonPipe } from '@angular/common';
 @Injectable({
   providedIn: 'root',
 })
-export class PostService {
+export class DataService {
   private readonly URL_API = 'http://localhost:9090/api';
 
   constructor(private httpClient: HttpClient) {}
@@ -26,15 +26,19 @@ export class PostService {
     return this.httpClient.post(`${this.URL_API}/course`, course);
   }
 
-  findyId(id: any) {
+  findStudentById(id: string) {
     return this.httpClient.get(`${this.URL_API}/student/${id}`);
   }
 
-  deleteStudentById(id: any) {
+  findCourseById(id: string) {
+    return this.httpClient.get(`${this.URL_API}/student/${id}`);
+  }
+
+  deleteStudentById(id: string) {
     return this.httpClient.delete(`${this.URL_API}/student/id/${id}`);
   }
 
-  deleteCourseById(id: any) {
+  deleteCourseById(id: string) {
     return this.httpClient.delete(`${this.URL_API}/course/${id}`);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { PostService } from 'src/app/services/post.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-table-courses',
@@ -9,10 +9,10 @@ import { PostService } from 'src/app/services/post.service';
 export class TableCoursesComponent implements OnInit {
   @Output() title: string = 'Courses';
   courses: any = [];
-  headers: any = ['Name', 'Teacher', 'Class', 'Start Date'];
-  entityId: any;
+  headers: string[] = ['Name', 'Teacher', 'Class', 'Start Date'];
+  entityId: string = '';
 
-  constructor(private service: PostService) {}
+  constructor(private service: DataService) {}
 
   ngOnInit(): void {
     this.getAllCourses();

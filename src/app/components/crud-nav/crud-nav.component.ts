@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { PostService } from 'src/app/services/post.service';
+import { DataService } from 'src/app/services/data.service';
 import { EventService } from 'src/app/services/event.service';
 import { FormGroup } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
@@ -21,7 +21,7 @@ export class CrudNavComponent implements OnInit {
 
   constructor(
     private modalService: MdbModalService,
-    private service: PostService,
+    private dataService: DataService,
     private eventService: EventService
   ) {}
 
@@ -39,8 +39,8 @@ export class CrudNavComponent implements OnInit {
 
   delete(): void {
     if (this.title === 'Students') {
-      this.service
-        .deleteStudentById(this.entityId)
+      this.dataService
+        .deleteStudentById(this.entityId!)
         .pipe(takeUntil(this._unsub$))
         .subscribe(() => {
           this.refreshTable.emit();
@@ -49,8 +49,8 @@ export class CrudNavComponent implements OnInit {
       return;
     }
 
-    this.service
-      .deleteCourseById(this.entityId)
+    this.dataService
+      .deleteCourseById(this.entityId!)
       .pipe(takeUntil(this._unsub$))
       .subscribe(() => {
         this.refreshTable.emit();
@@ -60,7 +60,7 @@ export class CrudNavComponent implements OnInit {
   create(): void {
     if (this.title === 'Students') {
       this.eventService.getEvent().subscribe((form: FormGroup) => {
-        this.service
+        this.dataService
           .postStudents(form.value)
           .pipe(takeUntil(this._unsub$))
           .subscribe({
@@ -75,7 +75,7 @@ export class CrudNavComponent implements OnInit {
     }
 
     this.eventService.getEvent().subscribe((form: FormGroup) => {
-      this.service
+      this.dataService
         .postCourses(form.value)
         .pipe(takeUntil(this._unsub$))
         .subscribe({

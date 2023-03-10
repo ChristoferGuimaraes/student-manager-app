@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { PostService } from 'src/app/services/post.service';
+import { Component, OnInit, Output } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+import { IStudentTable } from './table-student.interface';
 
 @Component({
   selector: 'app-table-students',
@@ -8,11 +9,11 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class TableStudentsComponent implements OnInit {
   @Output() title: string = 'Students';
-  students: any = [];
-  headers: any = ['ID', 'Name', 'Age', 'Email'];
-  entityId: any;
+  students: IStudentTable[] = [];
+  headers: string[] = ['ID', 'Name', 'Age', 'Email'];
+  entityId: string = '';
 
-  constructor(private service: PostService) {}
+  constructor(private service: DataService) {}
 
   ngOnInit(): void {
     this.getAllStudents();
