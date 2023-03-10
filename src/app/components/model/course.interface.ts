@@ -1,4 +1,4 @@
-export interface ICourseTable {
+export interface ICourse {
     id: number;
     name: string;
     teacherName: string;

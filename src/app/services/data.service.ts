@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
+import { Observable } from 'rxjs';
+import { CourseResponse, StudentResponse } from './model/response.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +12,12 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getStudents() {
-    return this.httpClient.get(`${this.URL_API}/students`);
+  getStudents(): Observable<StudentResponse> {
+    return this.httpClient.get<StudentResponse>(`${this.URL_API}/students`);
   }
 
-  getCourses() {
-    return this.httpClient.get(`${this.URL_API}/courses`);
+  getCourses(): Observable<CourseResponse>{
+    return this.httpClient.get<CourseResponse>(`${this.URL_API}/courses`);
   }
 
   postStudents(student: JsonPipe) {

@@ -87,4 +87,15 @@ export class CrudNavComponent implements OnInit {
         });
     });
   }
+
+  edit() {
+    this.dataService
+      .findStudentById(this.entityId!)
+      .pipe(takeUntil(this._unsub$))
+      .subscribe((entity) => {
+        this.eventService.emitEvent(entity);
+
+        this.modalRef = this.modalService.open(ModalComponent);
+      });
+  }
 }
