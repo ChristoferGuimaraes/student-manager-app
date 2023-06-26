@@ -58,26 +58,16 @@ export class CrudNavComponent implements OnInit {
   }
 
   create(): void {
-    if (this.title === 'Students') {
-      this.eventService.getEvent().subscribe((form: FormGroup) => {
-        this.service
-          .postStudents(form.value)
-          .pipe(takeUntil(this._unsub$))
-          .subscribe({
-            next: () => {
-              this.modalRef?.close();
-              this.refreshTable.emit();
-            },
-            error: (err) => console.log(err),
-          });
-      });
-      return;
-    }
-
     this.eventService.getEvent().subscribe((form: FormGroup) => {
-      this.service
-        .postCourses(form.value)
-        .pipe(takeUntil(this._unsub$))
+      let serviceCall;
+  
+      if (this.title === 'Students') {
+        serviceCall = this.service.postStudents(form.value);
+      } else {
+        serviceCall = this.service.postCourses(form.value);
+      }
+  
+      serviceCall.pipe(takeUntil(this._unsub$))
         .subscribe({
           next: () => {
             this.modalRef?.close();
@@ -87,4 +77,5 @@ export class CrudNavComponent implements OnInit {
         });
     });
   }
+  
 }
