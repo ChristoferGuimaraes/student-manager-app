@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { PostService } from 'src/app/services/post.service';
+import { Component, OnInit, Output } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+import { IStudent } from '../model/student.interface';
 
 @Component({
   selector: 'app-table-students',
@@ -8,19 +9,19 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class TableStudentsComponent implements OnInit {
   @Output() title: string = 'Students';
-  students: any = [];
-  headers: any = ['ID', 'Name', 'Age', 'Email'];
-  entityId: any;
+  students: IStudent[] = [];
+  headers: string[] = ['ID', 'Name', 'Age', 'Email'];
+  entityId: string | undefined = '';
 
-  constructor(private service: PostService) {}
+  constructor(private service: DataService) {}
 
   ngOnInit(): void {
     this.getAllStudents();
   }
 
   getAllStudents() {
-    this.service.getStudents().subscribe((data: any) => {
-      data.content.forEach((student: any) => {
+    this.service.getStudents().subscribe((data) => {
+      data.content.forEach((student: IStudent) => {
         student.selected = false;
       });
       this.students = data.content;
@@ -28,6 +29,7 @@ export class TableStudentsComponent implements OnInit {
   }
 
   onCheckboxChange(value: any) {
+    console.log(value)
     if (value.target.checked) {
       this.entityId = value.target.id;
     }

@@ -4,9 +4,9 @@ import { Injectable, EventEmitter } from '@angular/core';
   providedIn: 'root',
 })
 export class EventService {
-  private submitEvent = new EventEmitter<void>();
+  private submitEvent = new EventEmitter<unknown>();
 
-  emitEvent(event: any) {
+  emitEvent(event: unknown) {
     this.submitEvent.emit(event);
   }
 

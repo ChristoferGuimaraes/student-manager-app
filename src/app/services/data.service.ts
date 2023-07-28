@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
+import { Observable } from 'rxjs';
+import { CourseResponse, StudentResponse } from './model/response.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PostService {
+export class DataService {
   private readonly URL_API = 'http://localhost:9090/api';
 
   constructor(private httpClient: HttpClient) {}
 
-  getStudents() {
-    return this.httpClient.get(`${this.URL_API}/students`);
+  getStudents(): Observable<StudentResponse> {
+    return this.httpClient.get<StudentResponse>(`${this.URL_API}/students`);
   }
 
-  getCourses() {
-    return this.httpClient.get(`${this.URL_API}/courses`);
+  getCourses(): Observable<CourseResponse>{
+    return this.httpClient.get<CourseResponse>(`${this.URL_API}/courses`);
   }
 
   postStudents(student: JsonPipe) {
@@ -26,15 +28,19 @@ export class PostService {
     return this.httpClient.post(`${this.URL_API}/course`, course);
   }
 
-  findyId(id: any) {
+  findStudentById(id: string) {
     return this.httpClient.get(`${this.URL_API}/student/${id}`);
   }
 
-  deleteStudentById(id: any) {
+  findCourseById(id: string) {
+    return this.httpClient.get(`${this.URL_API}/student/${id}`);
+  }
+
+  deleteStudentById(id: string) {
     return this.httpClient.delete(`${this.URL_API}/student/id/${id}`);
   }
 
-  deleteCourseById(id: any) {
+  deleteCourseById(id: string) {
     return this.httpClient.delete(`${this.URL_API}/course/${id}`);
   }
 }

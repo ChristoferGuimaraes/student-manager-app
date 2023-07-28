@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { PostService } from 'src/app/services/post.service';
+import { DataService } from 'src/app/services/data.service';
+import { ICourse } from '../model/course.interface';
 
 @Component({
   selector: 'app-table-courses',
@@ -8,23 +9,24 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class TableCoursesComponent implements OnInit {
   @Output() title: string = 'Courses';
-  courses: any = [];
-  headers: any = ['Name', 'Teacher', 'Class', 'Start Date'];
-  entityId: any;
+  courses: ICourse[] = [];
+  headers: string[] = ['Name', 'Teacher', 'Class', 'Start Date'];
+  entityId: string = '';
 
-  constructor(private service: PostService) {}
+  constructor(private service: DataService) {}
 
   ngOnInit(): void {
     this.getAllCourses();
   }
 
   getAllCourses(): void {
-    this.service
-      .getCourses()
-      .subscribe((data: any) => (this.courses = data.content));
+    this.service.getCourses().subscribe((data) => {
+      this.courses = data.content;
+    });
   }
 
   onCheckboxChange(value: any) {
+    console.log(value)
     if (value.target.checked) {
       this.entityId = value.target.id;
     }
